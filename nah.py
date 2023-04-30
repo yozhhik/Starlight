@@ -446,7 +446,7 @@ def form_sample():
         if request.form['accept'] != 'on':
             return "Табуретов не регестрируем"
         else:
-            con = sqlite3.connect('db/regs.db')
+            con = sqlite3.connect('regs.db')
             cur = con.cursor()
             oi = '\n'.join([request.form['email'], request.form['tel'], request.form['class'], request.form['color'], request.form['sex'], request.form['candy'], request.form['file'], request.form['why'], request.form['about'], request.form['accept']])
             result = cur.execute(f"""INSERT INTO regs(login, password, level, otherinfo) VALUES({request.form['name']}, {request.form['surname']}, {1}, {oi})""").fetchall()
